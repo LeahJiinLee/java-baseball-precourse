@@ -1,5 +1,8 @@
-package baseball;
+package controller;
 
+import model.Check;
+import model.Computer;
+import model.Player;
 import java.util.ArrayList;
 
 public class Game {
@@ -18,6 +21,7 @@ public class Game {
         while (true){
             startOrEndFlag=0;
             userNumber=player.playerNumber(); //사용자수 입력받기
+            if (userNumber.size()<3) continue;
             strikeCount=check.checkNumber(computerNumber,userNumber);
             if(strikeCount==3){
                 startOrEndFlag=player.startOrEnd();

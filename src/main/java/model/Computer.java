@@ -1,4 +1,4 @@
-package baseball;
+package model;
 
 import java.util.ArrayList;
 import nextstep.utils.Randoms;
@@ -12,6 +12,7 @@ public class Computer {
                 numbers.add(randomNumber);
             }
         }
+        System.out.println(numbers);
     return numbers;
     }
 }

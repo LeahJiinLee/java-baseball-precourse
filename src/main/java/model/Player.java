@@ -1,4 +1,4 @@
-package baseball;
+package model;
 
 import java.util.ArrayList;
 import nextstep.utils.Console;
@@ -8,6 +8,10 @@ public class Player {
         ArrayList<Integer> numbers = new ArrayList<>();
         System.out.print("숫자를 입력해주세요 : ");
         String userInput = Console.readLine();
+        if (userInput.length()<3) {
+            System.out.println("ERROR: 숫자 세개를 입력해주세요!");
+            return numbers;
+        }
         for (int i=0; i<userInput.length(); i++){
             if (numbers.contains(userInput.charAt(i)-'0')) {
                 System.out.println("ERROR: 각 자리가 중복되지 않게 입력해주세요!");
@@ -17,7 +21,6 @@ public class Player {
                 numbers.add(userInput.charAt(i) - '0');
             }
         }
-
         return numbers;
     }
     public int startOrEnd(){

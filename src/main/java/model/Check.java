@@ -1,4 +1,4 @@
-package baseball;
+package model;
 import java.util.ArrayList;
 public class Check {
     public int checkNumber (ArrayList<Integer> computerNumber, ArrayList<Integer> userNumber){
@@ -23,7 +23,6 @@ public class Check {
                 ballCount++;
             }
         }
-
         if(strikeCount>0){
             System.out.print(strikeCount + "스트라이크 ");
         }
