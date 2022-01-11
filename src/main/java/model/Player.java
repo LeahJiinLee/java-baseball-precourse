@@ -2,23 +2,20 @@ package model;
 
 import java.util.ArrayList;
 import nextstep.utils.Console;
+import view.Message;
 
 public class Player {
     public ArrayList<Integer> playerNumber(){
+        Validation validation = new Validation();
         ArrayList<Integer> numbers = new ArrayList<>();
-        System.out.print("숫자를 입력해주세요 : ");
-        String userInput = Console.readLine();
-        if (userInput.length()<3) {
-            System.out.println("ERROR: 숫자 세개를 입력해주세요!");
+        String userInput ="";
+        userInput = Console.readLine();
+        if (!validation.checkInputLength(userInput)) {
             return numbers;
         }
-        for (int i=0; i<userInput.length(); i++){
-            if (numbers.contains(userInput.charAt(i)-'0')) {
-                System.out.println("ERROR: 각 자리가 중복되지 않게 입력해주세요!");
-                break;
-            }
-            else {
-                numbers.add(userInput.charAt(i) - '0');
+        for (int i=0; i<3; i++){
+            if(validation.checkInputDuplicate(userInput.charAt(i)-'0',numbers)){
+                numbers.add(userInput.charAt(i)-'0');
             }
         }
         return numbers;
