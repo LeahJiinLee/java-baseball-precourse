@@ -19,6 +19,19 @@ public class Check {
             return strikeCount;
         }
 
+        for (int i=0; i<computerNumber.size(); i++){
+            if (userNumber.contains(computerNumber) && (computerNumber.get(i) != userNumber.get(i))){
+                ballCount++;
+            }
+        }
+
+        if (ballCount>0){
+            System.out.println(ballCount + "볼");
+        }
+        if (ballCount>0 && strikeCount>0){
+            System.out.println(ballCount +"볼 "+strikeCount + "스트라이크");
+        }
+
         return strikeCount;
     }
 }
