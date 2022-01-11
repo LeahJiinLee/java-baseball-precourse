@@ -17,7 +17,6 @@ public class Check {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             return strikeCount;
         }
-
         for (int i=0; i<computerNumber.size(); i++){
             int checkIndex= userNumber.indexOf(computerNumber.get(i));
             if (checkIndex>-1 && checkIndex!=i){
@@ -25,15 +24,17 @@ public class Check {
             }
         }
 
-        if (ballCount>0 && strikeCount==0){
-            System.out.println(ballCount + "볼");
+        if(strikeCount>0){
+            System.out.print(strikeCount + "스트라이크 ");
         }
-        if (ballCount>0 && strikeCount>0){
-            System.out.println(ballCount +"볼 "+strikeCount + "스트라이크");
+        if (ballCount>0 ){
+            System.out.print(ballCount + "볼");
         }
         if (ballCount ==0 && strikeCount==0) {
-            System.out.println("낫싱");
+            System.out.print("낫싱");
         }
+        System.out.println();
+
         return strikeCount;
     }
 }
