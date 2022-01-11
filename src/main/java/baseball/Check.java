@@ -7,7 +7,6 @@ public class Check {
         //낫싱 판단
         int strikeCount=0;
         int ballCount=0;
-
         for (int i=0; i<computerNumber.size(); i++){
             if (computerNumber.get(i) == userNumber.get(i)){
                 strikeCount++;
@@ -20,18 +19,21 @@ public class Check {
         }
 
         for (int i=0; i<computerNumber.size(); i++){
-            if (userNumber.contains(computerNumber) && (computerNumber.get(i) != userNumber.get(i))){
+            int checkIndex= userNumber.indexOf(computerNumber.get(i));
+            if (checkIndex>-1 && checkIndex!=i){
                 ballCount++;
             }
         }
 
-        if (ballCount>0){
+        if (ballCount>0 && strikeCount==0){
             System.out.println(ballCount + "볼");
         }
         if (ballCount>0 && strikeCount>0){
             System.out.println(ballCount +"볼 "+strikeCount + "스트라이크");
         }
-
+        if (ballCount ==0 && strikeCount==0) {
+            System.out.println("낫싱");
+        }
         return strikeCount;
     }
 }
