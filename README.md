@@ -17,7 +17,7 @@
 
 ###[예외 처리]
 1. 겹치는 수가 있을 때
-2.  
+2. 숫자 3개 미만으로 입력 시
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
 
