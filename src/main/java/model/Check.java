@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class Check {
 
-    //스트라이크 판단
-    //볼 판단
-    //낫싱 판단
     public int checkStrikeCount(ArrayList<Integer> computerNumber, ArrayList<Integer> userNumber) {
         int strikeCount = 0;
         for (int i = 0; i < computerNumber.size(); i++) {
