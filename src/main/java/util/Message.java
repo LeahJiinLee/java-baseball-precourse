@@ -1,4 +1,4 @@
-package view;
+package util;
 
 public class Message {
     public static void printInputMessage(){
@@ -10,4 +10,5 @@ public class Message {
     public static void printDuplicateErrorMessage(){
         System.out.println("ERROR: 각 자리가 중복되지 않게 입력해주세요!");
     }
+
 }
