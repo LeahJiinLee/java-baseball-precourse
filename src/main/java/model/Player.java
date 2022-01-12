@@ -2,28 +2,40 @@ package model;
 
 import java.util.ArrayList;
 import nextstep.utils.Console;
-import view.Message;
+import util.Message;
 
 public class Player {
-    public ArrayList<Integer> playerNumber(){
-        Validation validation = new Validation();
+
+    Validation validation = new Validation();
+
+    public ArrayList<Integer> playerNumber() {
         ArrayList<Integer> numbers = new ArrayList<>();
-        String userInput ="";
+        String userInput;
         userInput = Console.readLine();
+        if (!validation.checkInputFormat(userInput)) {
+            return numbers;
+        }
         if (!validation.checkInputLength(userInput)) {
             return numbers;
         }
-        for (int i=0; i<3; i++){
-            if(validation.checkInputDuplicate(userInput.charAt(i)-'0',numbers)){
-                numbers.add(userInput.charAt(i)-'0');
+        if (!validation.checkInputContainsZero(userInput)) {
+            return numbers;
+        }
+        for (int i = 0; i < userInput.length(); i++) {
+            if (validation.checkInputDuplicate(userInput.charAt(i) - '0', numbers)) {
+                numbers.add(userInput.charAt(i) - '0');
             }
         }
         return numbers;
     }
-    public int startOrEnd(){
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String userInput = Console.readLine();
-        int startOrEndFlag = Integer.parseInt(userInput);
+
+    public int startOrEnd() {
+        int startOrEndFlag = 0;
+        while (!validation.checkStartOrEndFlag(startOrEndFlag)) {
+            Message.printGameStartMessage();
+            String userInput = Console.readLine();
+            startOrEndFlag = Integer.parseInt(userInput);
+        }
         return startOrEndFlag;
     }
 }
