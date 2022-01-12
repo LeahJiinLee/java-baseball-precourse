@@ -19,8 +19,17 @@ public class Validation {
         }
         return true;
     }
+    public boolean checkInputFormat(String userInput){
+        for (int i=0;i<userInput.length(); i++){
+            if(!(userInput.charAt(i)>='0' && userInput.charAt(i)<='9')){
+                Message.printInputValidErrorMessage();
+                return false;
+            }
+        }
+        return true;
+    }
     public boolean checkInputDuplicate(int userInputDigit, ArrayList<Integer> numbers){
-        if (numbers.contains(userInputDigit)) {
+        if (numbers.contains(userInputDigit)){
             Message.printDuplicateErrorMessage();
             return false;
         }
